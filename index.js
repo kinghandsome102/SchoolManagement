@@ -39,6 +39,8 @@ app.get("/",function(req,res){
 //Management Login
 app.post("/Home", async function(req,res){
     var UserID = req.body.UserID;
+    var DBID = UserID.slice(1);
+    console.log(DBID);
     var role = await db.checkRole(UserID[0]);
     if (role == 'Manage') {
         res.render("ManagementHome");

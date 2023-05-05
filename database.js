@@ -7,7 +7,7 @@ const { resolve } = require('path');
 var conection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: ".........",
+    password: "......",
     database: "SchoolManagement"
 });
 //add conected to database
