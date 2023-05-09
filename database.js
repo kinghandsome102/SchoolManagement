@@ -7,7 +7,7 @@ const { resolve } = require('path');
 var conection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "......",
+    password: "0368216443",
     database: "SchoolManagement"
 });
 //add conected to database
@@ -36,6 +36,23 @@ db.checkRole = function(c){
             {
                 return resolve(result[0].RoleName);
             }
+        })
+    })
+};
+
+/**
+ * Funtion name: CheckID
+ * input: string
+ * Output: object
+ */
+db.checkID = function(ID){
+    return new Promise((resolve,rejects)=>{
+        var query = "SELECT * FROM schoolmanagement.manage WHERE ManagerID = ?";
+        conection.query(query,[ID],(err,result)=>{
+            if (err)
+                return rejects(err);
+            else
+                return resolve(result[0]);
         })
     })
 };

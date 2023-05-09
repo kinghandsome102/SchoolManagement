@@ -39,11 +39,28 @@ app.get("/",function(req,res){
 //Management Login
 app.post("/Home", async function(req,res){
     var UserID = req.body.UserID;
-    var DBID = UserID.slice(1);
-    console.log(DBID);
+    var password = req.body.password;
+    var databaseID = UserID.slice(1);
     var role = await db.checkRole(UserID[0]);
     if (role == 'Manage') {
-        res.render("ManagementHome");
+        var user = await db.checkID(databaseID)
+        if (!user) {
+            res.redirect("/");
+        }
+        else if (user.ManagerPass == password) {
+            req.session.id = databaseID;
+            var userInfor = {
+                ID: user.ManagerID,
+                Name: user.ManagerName,
+                Email: user.ManagerEmail
+            }
+            res.render("ManagementHome",{
+                userInformation: userInfor
+            });
+        }
+        else {
+            res.redirect("/");
+        }
     }
     else {
         res.redirect("/");

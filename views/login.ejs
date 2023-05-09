@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="bootstrap-5.3.0-alpha3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="fontawesome-free-6.3.0-web/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/LoginStyle.css">
+  <%- include('include/head.ejs') %>
   <title>SchoolManagement</title>
 </head>
 <body>
@@ -30,7 +22,7 @@
   
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input type="password" id="form1Example23" class="form-control form-control-lg" />
+              <input type="password" id="form1Example23" class="form-control form-control-lg" name="password"/>
               <label class="form-label" for="form1Example23">Password</label>
             </div>
   
@@ -54,10 +46,9 @@
               role="button">
               <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
             </a>
-            <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+            <a class="btn btn-primary btn-lg btn-block mt-4" style="background-color: #55acee" href="#!"
               role="button">
               <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
-  
           </form>
         </div>
       </div>
