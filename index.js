@@ -23,7 +23,7 @@ app.use(session({
     saveUninitialized: false,
     secret:"abcdef",
     cookie: {
-        httpOnly:true,
+        httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24,
         sameSite: true,
         secure:process.env.MODE_ENV === 'production'
@@ -66,6 +66,12 @@ app.post("/Home", async function(req,res){
         res.redirect("/");
     }
 });
+
+//logout
+app.get("/logout",function (req,res) {
+    req.session.destroy();
+    res.redirect("/");
+})
 //set port
 
 const PORT = process.env.PORT || 3000;
