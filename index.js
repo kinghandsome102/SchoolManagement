@@ -54,8 +54,11 @@ app.post("/Home", async function(req,res){
                 Name: user.ManagerName,
                 Email: user.ManagerEmail
             }
+            var TcherIfo = await db.getTeacherData();
+            console.log(TcherIfo);
             res.render("ManagementHome",{
-                userInformation: userInfor
+                userInformation: userInfor,
+                TecherData: TcherIfo
             });
         }
         else {

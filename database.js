@@ -56,4 +56,22 @@ db.checkID = function(ID){
         })
     })
 };
+
+/**
+ * function name: getTeacherData
+ * input: none
+ * output: array
+ */
+
+db.getTeacherData = function(){
+    return new Promise((resolve,rejects)=>{
+        var query = "SELECT * FROM schoolmanagement.teacher A JOIN schoolmanagement.object B WHERE A.TeacherID = B.TeacherID";
+        conection.query(query,(err,result)=>{
+            if (err)
+                return rejects(err);
+            else
+                return resolve(result);
+        })
+    })
+}
 module.exports = db;
