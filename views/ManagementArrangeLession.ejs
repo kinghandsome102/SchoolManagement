@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('Managementinclude/head.ejs') %>
+    <title>Teacher arrange lession</title>
+</head>
+<body>
+    <%- include('Managementinclude/navigation.ejs') %>
+
+    <div class="container">
+        <div>
+            <select class="form-select mb-2" aria-label="Default select example">
+                <option selected>-</option>
+                <option value="1">Sắp xếp lịch học</option>
+                <option value="2">Thông tin lương giáo viên</option>
+            </select>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <table class="table table-bordered align-middle">
+                    <thead class="align-middle">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên giáo viên</th>
+                            <th>Môn giảng dạy</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-6">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <th>Lớp đang dạy</th>
+                            <th>Tiết dạy</th>
+                            <th>Thứ</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

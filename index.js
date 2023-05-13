@@ -59,7 +59,6 @@ app.post("/Home", async function(req,res){
             }
             //Send teacher info to management page
             var TcherIfo = await db.getTeacherData();
-            console.log(TcherIfo);
             res.render("ManagementHome",{
                 userInformation: userInfor,
                 TecherData: TcherIfo
@@ -78,6 +77,11 @@ app.post("/Home", async function(req,res){
 // Show student page
 app.get("/Student", function (req,res){
     res.render("ManagementStudentShow");
+});
+
+//arrange teacher time
+app.get("/Teacherlession",function (req,res){
+    res.render("ManagementArrangeLession");
 });
 //logout
 app.get("/logout",function (req,res) {
