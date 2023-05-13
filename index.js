@@ -38,15 +38,18 @@ app.get("/",function(req,res){
 });
 //Management Login
 app.post("/Home", async function(req,res){
-    var UserID = req.body.UserID;
-    var password = req.body.password;
-    var databaseID = UserID.slice(1);
-    var role = await db.checkRole(UserID[0]);
+    var UserID = req.body.UserID; //take User ID
+    var password = req.body.password; //Take User pass
+    var databaseID = UserID.slice(1);// slice ID to check role
+    var role = await db.checkRole(UserID[0]);//Check role
     if (role == 'Manage') {
+        //check ID techer in Database and send to Management page
         var user = await db.checkID(databaseID)
         if (!user) {
+            //can't find user redect
             res.redirect("/");
         }
+        //check pass
         else if (user.ManagerPass == password) {
             req.session.id = databaseID;
             var userInfor = {
@@ -54,6 +57,7 @@ app.post("/Home", async function(req,res){
                 Name: user.ManagerName,
                 Email: user.ManagerEmail
             }
+            //Send teacher info to management page
             var TcherIfo = await db.getTeacherData();
             console.log(TcherIfo);
             res.render("ManagementHome",{
@@ -62,6 +66,7 @@ app.post("/Home", async function(req,res){
             });
         }
         else {
+
             res.redirect("/");
         }
     }
