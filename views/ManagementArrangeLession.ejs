@@ -3,6 +3,7 @@
 <head>
     <%- include('Managementinclude/head.ejs') %>
     <title>Teacher arrange lession</title>
+    <script src="js/ManagementArrangeLession.js"></script>
 </head>
 <body>
     <%- include('Managementinclude/navigation.ejs') %>
@@ -15,7 +16,7 @@
                 <option value="2">Thông tin lương giáo viên</option>
             </select>
         </div>
-        <div class="row justify-content-between">
+        <div class="row justify-content-between d-none">
             <div class="col-6">
                 <table class="table table-bordered align-middle">
                     <thead class="align-middle">
@@ -25,6 +26,9 @@
                             <th>Môn giảng dạy</th>
                         </tr>
                     </thead>
+                    <tbody class="ShowTeacher">
+
+                    </tbody>
                 </table>
             </div>
             <div class="col-6">
@@ -36,6 +40,28 @@
                             <th>Thứ</th>
                         </tr>
                     </thead>
+                    <tbody id="ShowListLession">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-12">
+                <table class="table table-bordered align-middle">
+                    <thead class="align-middle">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên giáo viên</th>
+                            <th>Môn giảng dạy</th>
+                            <th>Tổng số tiết dạy</th>
+                            <th>Số tiết dạy thêm</th>
+                            <th>Số tiền chi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ShowTeacher">
+
+                    </tbody>
                 </table>
             </div>
         </div>
