@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('Managementinclude/head') %>
-    <title>Manager</title>
-    <link rel="stylesheet" href="css/ManagementCss.css">
+    <%- include('Managementinclude/head.ejs') %>
+
+
+    <title>Document</title>
 </head>
 <body>
     <%- include('Managementinclude/navigation.ejs') %>
-
-
-    <h1 class="text-center">Welcome <%= userInformation.Name %></h1>
+    
     <div class="TableTecher">
         <table class="table">
             <thead>
@@ -20,13 +19,6 @@
               </tr>
             </thead>
             <tbody>
-             <% TecherData.forEach((Tdata,index) => { %>
-              <tr>
-                <td><%= index + 1 %></td>
-                <td><%= Tdata.TeacherName %></td>
-                <td><%= Tdata.ObjectName %></td>
-              </tr>
-             <% }) %>
             </tbody>
           </table>
     </div>
