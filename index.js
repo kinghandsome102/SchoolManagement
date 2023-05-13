@@ -75,6 +75,10 @@ app.post("/Home", async function(req,res){
     }
 });
 
+// Show student page
+app.get("/Student", function (req,res){
+    res.render("ManagementStudentShow");
+});
 //logout
 app.get("/logout",function (req,res) {
     req.session.destroy();
