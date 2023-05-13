@@ -10,13 +10,13 @@
 
     <div class="container">
         <div>
-            <select class="form-select mb-2" aria-label="Default select example">
+            <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
                 <option selected>-</option>
                 <option value="1">Sắp xếp lịch học</option>
                 <option value="2">Thông tin lương giáo viên</option>
             </select>
         </div>
-        <div class="row justify-content-between d-none">
+        <div class="row justify-content-between" style="display: none;" id ="ShowArangeLession">
             <div class="col-6">
                 <table class="table table-bordered align-middle">
                     <thead class="align-middle">
@@ -46,7 +46,7 @@
                 </table>
             </div>
         </div>
-        <div class="row justify-content-between">
+        <div class="row justify-content-between" style="display: none;" id="ShowTeacherSalary">
             <div class="col-12">
                 <table class="table table-bordered align-middle">
                     <thead class="align-middle">
@@ -59,7 +59,7 @@
                             <th>Số tiền chi</th>
                         </tr>
                     </thead>
-                    <tbody class="ShowTeacher">
+                    <tbody class="ShowSalary">
 
                     </tbody>
                 </table>
