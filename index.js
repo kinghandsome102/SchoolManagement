@@ -85,6 +85,10 @@ app.get("/Teacherlession",async function (req,res){
     console.log(TcherIfo);
     res.render("ManagementArrangeLession",{teacherData: TcherIfo});
 });
+// arrangle teacher class
+app.get("/1", function (req,res) {
+    res.render("MangementArrangeClassForTeacher");
+});
 //logout
 app.get("/logout",function (req,res) {
     req.session.destroy();

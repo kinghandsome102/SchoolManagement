@@ -30,7 +30,9 @@
                         <% teacherData.forEach((element, index) => { %>
                          <tr>
                             <td>1<%= element.TeacherID %></td>
-                            <td><%= element.TeacherName %></td>
+                            <td>
+                                <a href="/1"><%= element.TeacherName %></a>
+                            </td>
                             <td><%= element.ObjectName %></td>
                         </tr>
                         <% }) %>
