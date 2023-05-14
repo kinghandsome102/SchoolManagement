@@ -1,3 +1,4 @@
+
 /**
  * Function Name: showTable
  * input: string
@@ -19,6 +20,7 @@ function hideTable(idTableHide) {
     var showTable = document.getElementById(idTableHide);
     showTable.style.display = 'none';
 }
+
 /* function choose arrang or Show salary
 input: none;
 Output: none;

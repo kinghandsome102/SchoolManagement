@@ -65,7 +65,7 @@ db.checkID = function(ID){
 
 db.getTeacherData = function(){
     return new Promise((resolve,rejects)=>{
-        var query = "SELECT * FROM schoolmanagement.teacher A JOIN schoolmanagement.object B WHERE A.TeacherID = B.TeacherID";
+        var query = "SELECT B.ObjectName, A.TeacherID, A.TeacherName FROM schoolmanagement.teacher A JOIN schoolmanagement.object B WHERE A.TeacherID = B.TeacherID";
         conection.query(query,(err,result)=>{
             if (err)
                 return rejects(err);

@@ -80,8 +80,10 @@ app.get("/Student", function (req,res){
 });
 
 //arrange teacher time
-app.get("/Teacherlession",function (req,res){
-    res.render("ManagementArrangeLession");
+app.get("/Teacherlession",async function (req,res){
+    var TcherIfo = await db.getTeacherData();
+    console.log(TcherIfo);
+    res.render("ManagementArrangeLession",{teacherData: TcherIfo});
 });
 //logout
 app.get("/logout",function (req,res) {

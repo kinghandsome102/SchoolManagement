@@ -9,7 +9,7 @@
     <%- include('Managementinclude/navigation.ejs') %>
 
     <div class="container">
-        <div>
+        <div class="mt-2">
             <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
                 <option selected>-</option>
                 <option value="1">Sắp xếp lịch học</option>
@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="row justify-content-between" style="display: none;" id ="ShowArangeLession">
-            <div class="col-6">
+            <div class="col-12">
                 <table class="table table-bordered align-middle">
                     <thead class="align-middle">
                         <tr>
@@ -26,22 +26,14 @@
                             <th>Môn giảng dạy</th>
                         </tr>
                     </thead>
-                    <tbody class="ShowTeacher">
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-6">
-                <table class="table table-bordered border-primary">
-                    <thead>
-                        <tr>
-                            <th>Lớp đang dạy</th>
-                            <th>Tiết dạy</th>
-                            <th>Thứ</th>
+                    <tbody class="table-bordered">
+                        <% teacherData.forEach((element, index) => { %>
+                         <tr>
+                            <td>1<%= element.TeacherID %></td>
+                            <td><%= element.TeacherName %></td>
+                            <td><%= element.ObjectName %></td>
                         </tr>
-                    </thead>
-                    <tbody id="ShowListLession">
-
+                        <% }) %>
                     </tbody>
                 </table>
             </div>
