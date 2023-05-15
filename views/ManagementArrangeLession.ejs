@@ -31,7 +31,9 @@
                          <tr>
                             <td>1<%= element.TeacherID %></td>
                             <td>
-                                <a href="/1"><%= element.TeacherName %></a>
+                                <% var id = element.TeacherID %>
+                                <a href="/<%= id %>"><%= element.TeacherName %>
+                                </a>
                             </td>
                             <td><%= element.ObjectName %></td>
                         </tr>

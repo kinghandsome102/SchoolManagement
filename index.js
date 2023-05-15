@@ -86,7 +86,9 @@ app.get("/Teacherlession",async function (req,res){
     res.render("ManagementArrangeLession",{teacherData: TcherIfo});
 });
 // arrangle teacher class
-app.get("/1", function (req,res) {
+app.get("/:id", function (req,res) {
+    var TeacherID = req.params.id;
+    
     res.render("MangementArrangeClassForTeacher");
 });
 //logout
