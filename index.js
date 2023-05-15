@@ -82,14 +82,13 @@ app.get("/Student", function (req,res){
 //arrange teacher time
 app.get("/Teacherlession",async function (req,res){
     var TcherIfo = await db.getTeacherData();
-    console.log(TcherIfo);
     res.render("ManagementArrangeLession",{teacherData: TcherIfo});
 });
 // arrangle teacher class
-app.get("/:id", function (req,res) {
-    var TeacherID = req.params.id;
-    
-    res.render("MangementArrangeClassForTeacher");
+app.get("/:id", async function (req,res) {
+    var teacherID = req.params.id;
+    var teacherInfor = await db.findDataWithID(teacherID);
+    res.render("MangementArrangeClassForTeacher",teacherInfor);
 });
 //logout
 app.get("/logout",function (req,res) {

@@ -73,5 +73,26 @@ db.getTeacherData = function(){
                 return resolve(result);
         })
     })
-}
+};
+/**Function Name: findDataWithID
+ * input: string
+ * Output: object
+ */
+
+db.findDataWithID = function (id) {
+    return new Promise((resolve,rejects)=>{
+        var query = "SELECT B.ObjectName, A.TeacherID, A.TeacherName, A.TeacherMail " + 
+        "FROM schoolmanagement.teacher A JOIN schoolmanagement.object B ON A.TeacherID = B.TeacherID";
+        conection.query(query,[id],(err,result)=>{
+            if (err)
+            {
+                return rejects(err);
+            } 
+            else
+            {
+                return resolve(result[0]);
+            }
+        })
+    })
+};
 module.exports = db;
