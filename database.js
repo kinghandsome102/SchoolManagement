@@ -95,4 +95,26 @@ db.findDataWithID = function (id) {
         })
     })
 };
+
+/**Function Name: GetClass
+ * input: string
+ * Output: Array
+ */
+db.getClass = function()
+{
+    return new Promise((resolve,rejects)=>{
+        var query = "SELECT * FROM schoolmanagement.Class";
+        conection.query(query,(err,result)=>{
+            if (err)
+            {
+                return rejects(err);
+            } 
+            else
+            {
+                return resolve(result)
+            }
+        })
+    })
+}
+
 module.exports = db;

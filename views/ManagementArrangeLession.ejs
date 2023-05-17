@@ -31,8 +31,7 @@
                          <tr>
                             <td>1<%= element.TeacherID %></td>
                             <td>
-                                <% var id = element.TeacherID %>
-                                <a href="/<%= id %>"><%= element.TeacherName %>
+                                <a href=""><%= element.TeacherName %>
                                 </a>
                             </td>
                             <td><%= element.ObjectName %></td>
@@ -48,15 +47,17 @@
                     <thead class="align-middle">
                         <tr>
                             <th>ID</th>
-                            <th>Tên giáo viên</th>
-                            <th>Môn giảng dạy</th>
-                            <th>Tổng số tiết dạy</th>
-                            <th>Số tiết dạy thêm</th>
-                            <th>Số tiền chi</th>
+                            <th>Tên lớp</th>
                         </tr>
                     </thead>
                     <tbody class="ShowSalary">
-
+                        <% ClassInfor.forEach(className => { %>
+                         <tr>
+                            <% var classID = className.ClassID  %>
+                            <td><%= className.ClassID %></td>
+                            <td><a href="/<%= classID %>"><%= className.ClassName %></a></td>
+                         </tr>
+                        <% }) %>
                     </tbody>
                 </table>
             </div>
