@@ -87,8 +87,31 @@ app.get("/Teacherlession",async function (req,res){
 });
 // arrangle teacher class
 app.get("/:classID", async function (req,res) {
-    var ClassInfor = await db.getClass();
-    res.render("MangementArrangeClassForTeacher",ClassInfor);
+    var classID = req.params.ClassID;
+    var Lession = await db.getClass(classID);
+    var dayOflession = {
+        Monday: [],
+        Tuesday: [],
+        Wednesday: [],
+        Thursday:[],
+        Friday: []
+    };
+    let length = Lession.length;
+    for (let index = 0; index < length; index++) {
+        if(index < 10){
+            dayOflession.Monday.push(Lession[index]);
+        } else if (index < 20) {
+            dayOflession.Tuesday.push(Lession[index]);
+        } else if (index < 30) {
+            dayOflession.Wednesday.push(Lession[index]);
+        } else if (index < 40) {
+            dayOflession.Thursday.push(Lession[index]);
+        } else if (index < 50) {
+            dayOflession.Friday.push(Lession[index]);
+        }
+        
+    }
+    res.render("MangementArrangeClassForTeacher",Lession);
 });
 //logout
 app.get("/logout",function (req,res) {

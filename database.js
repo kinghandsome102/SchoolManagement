@@ -117,4 +117,21 @@ db.getClass = function()
     })
 }
 
+db.getLessionByID = function(id)
+{
+    return new Promise((resolve,rejects)=>{
+        var query = "SELECT * FROM schoolmanagement.lession WHERE ClassID = ?";
+        conection.query(query,[id],(err,result)=>{
+            if (err)
+            {
+                return rejects(err);
+            } 
+            else
+            {
+                return resolve(result)
+            }
+        })
+    })
+}
+
 module.exports = db;
