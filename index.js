@@ -89,13 +89,15 @@ app.get("/Teacherlession",async function (req,res){
 app.get("/:classID", async function (req,res) {
     var classID = req.params.ClassID;
     var Lession = await db.getLessionByID(classID);
+    var teachers = await db.getTeacherData();
     var dayOflession = {
         Monday: [],
         Tuesday: [],
         Wednesday: [],
         Thursday:[],
         Friday: [],
-        IsEmty: false
+        IsEmty: false,
+        teacherInfo: teachers,
     };
     let length = Lession.length;
     if (length!=0) {
