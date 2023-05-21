@@ -117,7 +117,7 @@ db.getClass = function()
     })
 }
 
-db.getLessionByID = function(id)
+db.getLessionByID = function( id)
 {
     return new Promise((resolve,rejects)=>{
         var query = "SELECT * FROM schoolmanagement.lession WHERE ClassID = ?";

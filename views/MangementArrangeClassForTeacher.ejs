@@ -45,95 +45,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="align-middle">Tiết 1</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="align-middle">Tiết 2</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 3</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 4</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 5</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 6</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 7</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 8</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="align-middle">Tiết 9</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="align-middle">Tiết 10</td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                        <td class="bg-light-gray"></td>
-                    </tr>  
+                    <% if (IsEmty == false) { %>
+                        <% for( let index = 0; index < 10; index++ ) { %>
+                            <tr>
+                                <td class="align-middle">Tiết <%= index +1%></td>
+                                <td class="bg-light-gray"><input type="text"></td>
+                                <td class="bg-light-gray"><input type="text"></td>
+                                <td class="bg-light-gray"><input type="text"></td>
+                                <td class="bg-light-gray"><input type="text"></td>
+                                <td class="bg-light-gray"><input type="text"></td>
+                            </tr>
+                        <% } %>
+                    <% } else { %>
+                        <% for( let index = 0; index < 10; index++ ) { %>
+                            <tr>
+                                <td class="align-middle">Tiết <%= index +1%></td>
+                                <td class="bg-light-gray"><%= Monday[index].TeacherID %></td>
+                                <td class="bg-light-gray"><%= Tuesday[index].TeacherID %></td>
+                                <td class="bg-light-gray"><%= Wednesday[index].TeacherID %></td>
+                                <td class="bg-light-gray"><%= Thursday[index].TeacherID %></td>
+                                <td class="bg-light-gray"><%= Friday[index].TeacherID %></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
                 </tbody>
             </table>
         </div>

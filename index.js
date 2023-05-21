@@ -88,15 +88,19 @@ app.get("/Teacherlession",async function (req,res){
 // arrangle teacher class
 app.get("/:classID", async function (req,res) {
     var classID = req.params.ClassID;
-    var Lession = await db.getClass(classID);
+    var Lession = await db.getLessionByID(classID);
     var dayOflession = {
         Monday: [],
         Tuesday: [],
         Wednesday: [],
         Thursday:[],
-        Friday: []
+        Friday: [],
+        IsEmty: false
     };
     let length = Lession.length;
+    if (length!=0) {
+        dayOflession.IsEmty = true;
+    }
     for (let index = 0; index < length; index++) {
         if(index < 10){
             dayOflession.Monday.push(Lession[index]);
@@ -111,7 +115,7 @@ app.get("/:classID", async function (req,res) {
         }
         
     }
-    res.render("MangementArrangeClassForTeacher",Lession);
+    res.render("MangementArrangeClassForTeacher",dayOflession);
 });
 //logout
 app.get("/logout",function (req,res) {
