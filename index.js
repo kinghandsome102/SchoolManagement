@@ -7,6 +7,9 @@ const path = require('path');
 const db = require("./database");
 //engine
 
+//global varialble
+    var ClassID;
+//end
 const app = express();
 
 app.set("view engine", "ejs");
@@ -87,7 +90,7 @@ app.get("/Teacherlession",async function (req,res){
 });
 // arrangle teacher class
 app.get("/:classID", async function (req,res) {
-    var classID = req.params.ClassID;
+    classID = req.params.ClassID;
     var Lession = await db.getLessionByID(classID);
     var teachers = await db.getTeacherData();
     var dayOflession = {
@@ -118,6 +121,16 @@ app.get("/:classID", async function (req,res) {
         
     }
     res.render("MangementArrangeClassForTeacher",dayOflession);
+});
+app.post("/Getteacher",function(req,res){
+    var MondayLession = req.body.Monday;
+    var TuesdayLession = req.body.Tuesday;
+    var WednesdayLession = req.body.Wednesday;
+    var ThursdayLession = req.body.Thursday;
+    var FridayLession = req.body.Friday;
+    MondayLession.forEach(element => {
+        
+    });
 });
 //logout
 app.get("/logout",function (req,res) {

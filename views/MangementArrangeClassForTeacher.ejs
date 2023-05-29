@@ -5,6 +5,7 @@
     <%- include('Managementinclude/head.ejs') %>
     <link rel="stylesheet" href="css/ManagementArrange.css">
     <script src="bootstrap-5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script src="js/ManagementSystemTime"></script>
     <title>Document</title>
 </head>
 <body>
@@ -45,68 +46,70 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% if (IsEmty == false) { %>
-                        <% for( let index = 0; index < 10; index++ ) { %>
-                            <tr>
-                                <td class="align-middle">Tiết <%= index +1%></td>
-                                <td class="bg-light-gray">  
-                                    <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
-                                        <option selected>-</option>
-                                        <% teacherInfo.forEach((teacher) => { %>
-                                            <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
-                                        <% }) %>
-                                    </select>
-                                </td>
-                                <td class="bg-light-gray">
-                                    <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
-                                        <option selected>-</option>
-                                        <% teacherInfo.forEach((teacher) => { %>
-                                            <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
-                                        <% }) %>
-                                    </select>
-                                </td>
-                                <td class="bg-light-gray">
-                                    <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
-                                        <option selected>-</option>
-                                        <% teacherInfo.forEach((teacher) => { %>
-                                            <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
-                                        <% }) %>
-                                    </select>
-                                </td>
-                                <td class="bg-light-gray">
-                                    <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
-                                        <option selected>-</option>
-                                        <% teacherInfo.forEach((teacher) => { %>
-                                            <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
-                                        <% }) %>
-                                    </select>
-                                </td>
-                                <td class="bg-light-gray">
-                                    <select class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
-                                        <option selected>-</option>
-                                        <% teacherInfo.forEach((teacher) => { %>
-                                            <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
-                                        <% }) %>
-                                    </select>
-                                </td>
-                            </tr>
+                    <form action="Getteacher" method="post">
+                        <% if (IsEmty == false) { %>
+                            <% for( let index = 0; index < 10; index++ ) { %>
+                                <tr>
+                                    <td class="align-middle">Tiết <%= index +1%></td>
+                                    <td class="bg-light-gray">  
+                                        <select name = "Monday" class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
+                                            <option selected >-</option>
+                                            <% teacherInfo.forEach((teacher) => { %>
+                                                <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
+                                            <% }) %>
+                                        </select>
+                                    </td>
+                                    <td class="bg-light-gray">
+                                        <select name = "Tuesday" class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
+                                            <option selected>-</option>
+                                            <% teacherInfo.forEach((teacher) => { %>
+                                                <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
+                                            <% }) %>
+                                        </select>
+                                    </td>
+                                    <td class="bg-light-gray">
+                                        <select name = "Wednesday" class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
+                                            <option selected>-</option>
+                                            <% teacherInfo.forEach((teacher) => { %>
+                                                <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
+                                            <% }) %>
+                                        </select>
+                                    </td>
+                                    <td class="bg-light-gray">
+                                        <select name = "Thursday" class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
+                                            <option selected>-</option>
+                                            <% teacherInfo.forEach((teacher) => { %>
+                                                <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
+                                            <% }) %>
+                                        </select>
+                                    </td>
+                                    <td class="bg-light-gray">
+                                        <select name="Friday" class="form-select mb-2" aria-label="Default select example" id="ArrangeOrShowsalary" onchange="arrangeOrShow()">
+                                            <option selected>-</option>
+                                            <% teacherInfo.forEach((teacher) => { %>
+                                                <option value="<%= teacher.TeacherID %>"><%= teacher.TeacherName %> - <%= teacher.ObjectName %></option>
+                                            <% }) %>
+                                        </select>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <% for( let index = 0; index < 10; index++ ) { %>
+                                <tr>
+                                    <td class="align-middle">Tiết <%= index +1%></td>
+                                    <td class="bg-light-gray"><%= Monday[index].TeacherID %></td>
+                                    <td class="bg-light-gray"><%= Tuesday[index].TeacherID %></td>
+                                    <td class="bg-light-gray"><%= Wednesday[index].TeacherID %></td>
+                                    <td class="bg-light-gray"><%= Thursday[index].TeacherID %></td>
+                                    <td class="bg-light-gray"><%= Friday[index].TeacherID %></td>
+                                </tr>
+                            <% } %>
                         <% } %>
-                    <% } else { %>
-                        <% for( let index = 0; index < 10; index++ ) { %>
-                            <tr>
-                                <td class="align-middle">Tiết <%= index +1%></td>
-                                <td class="bg-light-gray"><%= Monday[index].TeacherID %></td>
-                                <td class="bg-light-gray"><%= Tuesday[index].TeacherID %></td>
-                                <td class="bg-light-gray"><%= Wednesday[index].TeacherID %></td>
-                                <td class="bg-light-gray"><%= Thursday[index].TeacherID %></td>
-                                <td class="bg-light-gray"><%= Friday[index].TeacherID %></td>
-                            </tr>
-                        <% } %>
-                    <% } %>
-                </tbody>
+                    </tbody>
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                </form>
             </table>
         </div>
-        <button type="button" class="btn btn-outline-primary">Save</button>
     </div>
 <div class="container">
     <hr>
